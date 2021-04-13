@@ -52,10 +52,12 @@ class App extends Component {
       })
       .catch(error => this.setState({ error }))
       .finally(() => {
-        window.scrollTo({
-          top: document.documentElement.offsetHeight,
-          behavior: 'smooth',
-        });
+        if (this.state.currentPage > 2) {
+          window.scrollTo({
+            top: document.documentElement.offsetHeight,
+            behavior: 'smooth',
+          });
+        }
 
         this.setState({
           isLoading: false,
